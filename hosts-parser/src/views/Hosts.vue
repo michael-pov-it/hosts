@@ -17,7 +17,11 @@
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue"
 import Bottom from "@/components/Bottom.vue"
-//var hosts = JSON.parse("@/assets/json/data.json")
+//import fs from "core-js"
+
+//var data = "/assets/json/data.json";
+//var parse_data = JSON.parse(data);
+//console.log(parse_data);
 
 export default {
   name: "Home",
