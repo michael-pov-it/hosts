@@ -1,13 +1,19 @@
 <template>
   <div class="hosts">
     <HelloWorld msg="Welcome to Hosts page" />
-    <div id="hosts-list" v-for="host in this.hosts" :key="host.infrastructure">
-      <h2>Inftastructure</h2>
-      {{ host.infrastructure }}
-      <h2>vSphere</h2>
-      {{ host.vsphere }}
-      <h2>Inftastructure</h2>
-      {{ host.infrastructure }}
+    <div id="hosts-list" v-for="hosts in data" :key="hosts.machines">
+      <h2>Categories</h2>
+      <div class="categories">
+        <div
+          v-for="(index, category) in hosts.telvent"
+          :key="category.vsphere"
+          class="category">
+          <h3>{{ category }}</h3>
+          <div v-for="(value, key) in index" :key="key.value">
+          {{ key }}: {{ value }}
+          </div>
+        </div>
+      </div>
     </div>
     <Bottom />
   </div>
@@ -17,11 +23,11 @@
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue"
 import Bottom from "@/components/Bottom.vue"
-//import fs from "core-js"
 
-//var data = "/assets/json/data.json";
-//var parse_data = JSON.parse(data);
-//console.log(parse_data);
+import data from '@/assets/json/data.json'
+
+let testStr = "http://telvent.web-dev-studio.com/json/data.json"
+fetch(testStr).then(r=>( console.log(r.json) ))
 
 export default {
   name: "Home",
@@ -34,19 +40,19 @@ export default {
   },
   data() {
     return {
-      hosts: {
-        "telvent" : {
-          "infrastructure" : {
-            "server1": "10.10.11.12",
-            "server2": "13.14.15.16"
-          },
-          "vsphere": {
-            "server11": "17.18.19.20",
-            "server2222": "22.23.24.99"
-          }
-        }
-      }
+      data: data
     }
   }
 }
 </script>
+<style lang="css">
+  .category {
+    text-align: left;
+    float: left;
+  }
+  .categories {
+    display: flex;
+    padding: 0 5% 30px;
+    justify-content: space-between;
+  }
+</style>

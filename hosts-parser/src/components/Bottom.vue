@@ -33,8 +33,6 @@
 <style scoped lang="less">
 .copy {
   width: 99%;
-  position: absolute;
-  bottom: 2em;
   text-align: center;
 }
 </style>
