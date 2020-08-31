@@ -1,0 +1,30 @@
+{
+  "hosts": {
+    "iClave": {
+     "/infrastructure/AD" : {
+       "pdc.ad.avystele.com": "10.46.1.90",
+       "server2": "13.14.15.16",
+       "server3": "10.10.11.123",
+       "server4": "13.14.15.163"
+     },
+     "Category2": {
+       "server11": "17.18.19.20",
+       "server2222": "22.23.24.99"
+     },
+     "Category3": {
+       "server999": "10.00.99.111"
+     },
+     "Category4": {
+       "host2020": "192.169.0.0"
+     },
+     "Category5": {
+      "es-tv-blue-VRing-Scanner-db": "185.117.172.21",
+      "pbx-host2": "333.222.11.9"
+    },
+     "Category6": {
+       "pbx-host": "222.333.111.4",
+       "es-tv-pbx-OpenSIPS": "185.117.172.30, 176.32.254.13/10.198.3.37"
+     }
+   }
+  }
+}

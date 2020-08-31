@@ -28,14 +28,14 @@ var routes = [{
   name: "Hosts",
   component: _Hosts["default"]
 }, {
-  path: "/about",
-  name: "About",
+  path: "/edit",
+  name: "Edit",
   // route level code-splitting
   // this generates a separate chunk (about.[hash].js) for this route
   // which is lazy-loaded when the route is visited.
   component: function component() {
     return Promise.resolve().then(function () {
-      return _interopRequireWildcard(require("../views/About.vue"));
+      return _interopRequireWildcard(require("../views/Edit.vue"));
     });
   }
 }];

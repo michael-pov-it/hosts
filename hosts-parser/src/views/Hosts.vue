@@ -1,16 +1,33 @@
 <template>
   <div class="hosts">
-    <HelloWorld msg="Welcome to Hosts page" />
-    <div id="hosts-list" v-for="hosts in data" :key="hosts.machines">
-      <h2>Categories</h2>
-      <div class="categories">
-        <div
-          v-for="(index, category) in hosts.telvent"
-          :key="category.vsphere"
-          class="category">
-          <h3>{{ category }}</h3>
-          <div v-for="(value, key) in index" :key="key.value">
-          {{ key }}: {{ value }}
+    <div class="data-center">
+      <h2>Telvent</h2>
+      <div id="telvent-hosts-list" class="accordion" v-for="hosts in telvent" :key="hosts.machines">
+        <div class="categories">
+          <div
+            v-for="(index, category) in hosts.telvent"
+            :key="category.vsphere"
+            class="category">
+            <h3>{{ category }}</h3>
+            <div v-for="(value, key) in index" :key="key.value">
+            {{ key }}: {{ value }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="data-center">
+      <h2>iClave</h2>
+      <div id="iclave-hosts-list" class="accordion" v-for="iclaveHosts in iclave" :key="iclaveHosts.id">
+        <div class="categories">
+          <div
+            v-for="(index, category) in iclaveHosts.iClave"
+            :key="category.category1"
+            class="category">
+            <h3>{{ category }}</h3>
+            <div v-for="(value, key) in index" :key="key.value">
+            {{ key }}: {{ value }}
+            </div>
           </div>
         </div>
       </div>
@@ -20,27 +37,28 @@
 </template>
 
 <script>
+
+// let testStr = "http://telvent.web-dev-studio.com/json/data.json"
+// fetch(testStr).then(r=>( console.log(r.json) ))
+
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue"
 import Bottom from "@/components/Bottom.vue"
 
-import data from '@/assets/json/data.json'
-
-let testStr = "http://telvent.web-dev-studio.com/json/data.json"
-fetch(testStr).then(r=>( console.log(r.json) ))
+import telvent from '@/assets/json/telvent.json'
+import iclave from '@/assets/json/iclave.json'
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
     Bottom
   },
   el() {
-    `#hosts-list`
+    `.hosts`
   },
   data() {
     return {
-      data: data
+      telvent: telvent,
+      iclave: iclave
     }
   }
 }
@@ -49,10 +67,18 @@ export default {
   .category {
     text-align: left;
     float: left;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin: 1em;
+    padding: 10px;
+  }
+  .category h3 {
+    text-align: center;
+    margin: 5px 0;
   }
   .categories {
     display: flex;
-    padding: 0 5% 30px;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 5% 10px;
   }
 </style>

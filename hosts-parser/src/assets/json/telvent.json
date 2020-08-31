@@ -2,7 +2,7 @@
   "hosts": {
     "telvent" : {
      "Infrastructure" : {
-       "server1": "10.10.11.12",
+       "es-tv-mgm-01": "10.198.3.253",
        "server2": "13.14.15.16",
        "server3": "10.10.11.123",
        "server4": "13.14.15.163"
@@ -16,6 +16,14 @@
      },
      "MVNO": {
        "host2020": "192.169.0.0"
+     },
+     "Applications": {
+      "es-tv-blue-VRing-Scanner-db": "185.117.172.21",
+      "pbx-host2": "333.222.11.9"
+    },
+     "PBX": {
+       "pbx-host": "222.333.111.4",
+       "es-tv-pbx-OpenSIPS": "185.117.172.30, 176.32.254.13/10.198.3.37"
      }
    }
   }
